@@ -47,6 +47,7 @@ Quarterly Power Pulse workforce reports for client HR teams
 |`pulse\\\_app.py`|The full intelligence engine: webhook handling, multilingual risk scanning, burnout scoring, ID verification, structured logging|
 |`queries.sql`|The roster queries used live in the app, plus the reporting queries behind the quarterly workforce reports|
 |`onboard\\\_client.py`|Client ingestion script: reads a new client's employee roster from CSV, SHA-256 hashes each ID, and loads it into the database - the same hashing the app uses at verification, so matches always work|
+|`data_flow` |end-to-end data flow, source-to-target mapping, data dictionary with sensitivity classification, access controls, and known gaps with roadmap|
 
 ## Engineering decisions worth noting
 
