@@ -31,7 +31,7 @@ Flask app (Python) - deployed on PythonAnywhere
         │   pending state persisted to disk so it survives restarts
         │
         ├── Identity layer - employee IDs verified via SHA-256 hash lookup
-        │   in SQLite; raw IDs are never stored (privacy by design)
+        │   in SQLite; verification never compares raw IDs
         │
         ▼
 Structured event log (timestamped, cleaned, categorised)
@@ -52,8 +52,8 @@ Quarterly Power Pulse workforce reports for client HR teams
 
 * **Safety first in the pipeline**: every inbound message is scanned for
 crisis language before any other processing.
-* **Privacy by design**: employee IDs are stored only as SHA-256 hashes,
-in line with POPIA thinking.
+* **Privacy by design**: verification runs against SHA-256 hashes, never raw IDs, in line with POPIA thinking.
+Making the hash the sole stored identifier is the next hardening step.
 * **Parameterised SQL throughout** - no string concatenation, no injection risk.
 * **Durable state**: pending check-ins are written to disk, not held in
 memory, so a restart never loses half a check-in.
